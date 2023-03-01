@@ -1,0 +1,23 @@
+﻿@model ProjectApp.ViewModels.InvalidTryVM
+@{
+    ViewData["Title"] = "Invalid Try";
+}
+
+<h1>Access denied for this action!</h1>
+
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </tr>
+    </thead>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

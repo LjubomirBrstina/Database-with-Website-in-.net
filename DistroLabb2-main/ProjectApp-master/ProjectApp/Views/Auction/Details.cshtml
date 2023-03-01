@@ -1,0 +1,79 @@
+﻿@model ProjectApp.ViewModels.AuctionDetailsVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Auction details</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AuctionName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AuctionName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartingPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartingPrice)
+        </dd>
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsExpired)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsExpired)
+        </dd>
+    </dl>
+</div>
+<p/>
+<div>
+    <h4>Bids</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                   <b>Bidder</b>
+                </th>
+                <th>
+                   <b>Amount</b>
+                </th>
+                <th>
+                   <b>TimeSubmitted</b>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BidVMs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bidder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.timeSubmitted)
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

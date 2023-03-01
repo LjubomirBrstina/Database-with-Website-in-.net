@@ -1,0 +1,56 @@
+﻿@using ProjectApp.Controllers
+@model IEnumerable<ProjectApp.ViewModels.AuctionVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Available Auctions</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.auctionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.startingPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.auctionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.seller)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.startingPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                   
+                    @Html.ActionLink("Details", "Details", new { id = item.auctionName })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                </td>
+                <td>
+                    @Html.ActionLink("Bid", "Bid", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

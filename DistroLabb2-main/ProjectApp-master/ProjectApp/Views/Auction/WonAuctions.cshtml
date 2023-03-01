@@ -1,0 +1,56 @@
+﻿@using ProjectApp.Controllers
+@model IEnumerable<ProjectApp.ViewModels.AuctionVM>
+@{
+    ViewData["Title"] = "Won Auctions";
+}
+
+<h1>Won Auctions</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.auctionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seller)
+            </th>
+            <th>
+                <text>Final Price</text>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isExpired)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.auctionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.seller)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.startingPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isExpired)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.auctionName })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
